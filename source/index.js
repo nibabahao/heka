@@ -44,8 +44,8 @@ function canvas_Font(){
 
 
   decodeData();
-  QUALITY_TO_FONT_SIZE = 98;
-  QUALITY_TO_SCALE = document.documentElement.clientWidth/250;
+  QUALITY_TO_FONT_SIZE = 95;
+  QUALITY_TO_SCALE = document.documentElement.clientWidth/280;
   QUALITY_TO_TEXT_POS = [10, 18, 43, 86, 170, 280];
 
   window.onload = function() {
