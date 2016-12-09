@@ -378,33 +378,33 @@ html,body{
 			timerTick=0;
 			setTimeout(function(){
 				window.cancelAnimationFrame(rqaf);
-				// wordDraw();
-				// function wordDraw(){
-				// 	requestAnimFrame(wordDraw);
-				// 	timerTick++;
+				wordDraw();
+				function wordDraw(){
+					requestAnimFrame(wordDraw);
+					timerTick++;
 			
-				// 	if(timerTick%500==0){
-				// 		hue += 0.5;
-				// 		if(_radius>=8||_radius<=3){
-				// 			key*=-1;
-				// 		}
-				// 		_radius+=key;
-				// 		var brightness=random( 60, 80 ),alpha=random();
-				// 		alpha=alpha>0.6?alpha:0.6;
-				// 		ctx.globalCompositeOperation = 'destination-out';
-				// 		ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
-				// 		ctx.fillRect( 0, 0, cw, ch );				
-				// 		ctx.globalCompositeOperation = 'lighter';
-				// 		// ctx.strokeStyle = 'hsl(' + hue + ', 100%, ' + brightness + '%)';
-				// 		ctx.strokeStyle = 'hsla(' + hue + ', 100%, ' + brightness + '%, ' + alpha + ')';
-				// 			for(var i=0;i<=index;i++){
-				// 				ctx.beginPath();
-				// 				ctx.arc(arr[i].x,arr[i].y, _radius, 0, Math.PI * 2 )
-				// 				ctx.closePath();
-				// 				ctx.stroke();
-				// 			}
-				//    }
-				// }
+					if(timerTick%500==0){
+						hue += 0.5;
+						if(_radius>=8||_radius<=3){
+							key*=-1;
+						}
+						_radius+=key;
+						var brightness=random( 60, 80 ),alpha=random();
+						alpha=alpha>0.6?alpha:0.6;
+						ctx.globalCompositeOperation = 'destination-out';
+						ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+						ctx.fillRect( 0, 0, cw, ch );				
+						ctx.globalCompositeOperation = 'lighter';
+						// ctx.strokeStyle = 'hsl(' + hue + ', 100%, ' + brightness + '%)';
+						ctx.strokeStyle = 'hsla(' + hue + ', 100%, ' + brightness + '%, ' + alpha + ')';
+							for(var i=0;i<=index;i++){
+								ctx.beginPath();
+								ctx.arc(arr[i].x,arr[i].y, _radius, 0, Math.PI * 2 )
+								ctx.closePath();
+								ctx.stroke();
+							}
+				   }
+				}
 				location.href="font.html";
 			},2000);
 		}
