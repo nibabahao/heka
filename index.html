@@ -86,12 +86,16 @@ var canvas = document.getElementById( 'canvas' ),
 		// 鼠标x坐标,
 		mx,
 		// 鼠标y坐标
-		my;
-		
-// 设置canvas宽高
-canvas.width = cw;
-canvas.height = ch;
+		my,
 
+	    tScale  = window.devicePixelRatio;	
+		
+
+// canvas.style.width=cw+"px";
+// canvas.style.height=ch+"px";
+// 设置canvas宽高
+canvas.width = cw*tScale;
+canvas.height = ch*tScale;
 //创建各种工具函数
 
 //获取最大值最少值随机数
@@ -183,7 +187,7 @@ Firework.prototype.draw = function() {
 	
 	ctx.beginPath();
 	// 画出目标点的小圆圈
-	ctx.arc( this.tx, this.ty, this.targetRadius, 0, Math.PI * 2 );
+	ctx.arc( this.tx, this.ty, this.targetRadius*tScale, 0, Math.PI * 2 );
 	ctx.stroke();
 }
 
@@ -382,17 +386,18 @@ function renderDigit(x,y,num){
 
 
 var index=0;
-var radius=3;
+var radius=3/tScale;
 var key=0.3;
-var margin_left=4*(_radius+1);//左边距  
-var margin_top=(canvas.height-20*(_radius+1))/5;
+var margin_left=4*(_radius+1)/tScale;//左边距  
+var margin_top=4*(_radius+1);
 // renderDigit(margin_left,100,0);
 // renderDigit(margin_left+37*(_radius+1),100,1);
 // renderDigit(margin_left+37*(_radius+1)*2,100+(_radius+1)*2,2);
-renderDigit(margin_left,margin_top,2);
-renderDigit(margin_left+37*(_radius+1),margin_top,3);
-renderDigit(margin_left+37*(_radius+1)*2,margin_top+(_radius+1)*8,5,ctx);
-renderDigit(margin_left+155*(_radius+1),margin_top,7,ctx);
+renderDigit(margin_left,margin_top,8);
+renderDigit(margin_left+50*(_radius+1),margin_top,8);
+renderDigit(margin_left+25*(_radius+1),margin_top+50*(_radius+1),9);
+// renderDigit(margin_left+37*(_radius+1)*2,margin_top+(_radius+1)*8,5,ctx);
+// renderDigit(margin_left+155*(_radius+1),margin_top,7,ctx);
 fireworks.push( new Firework( cw / 2, ch, arr[0].x, arr[0].y ) );
 function once(){
 	//颜色渐变
